@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CreateComment from "./CreateComment";
 
 const PostList = () => {
   const [post, setPost] = useState({});
@@ -21,8 +22,10 @@ const PostList = () => {
           className="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition"
         >
           <h2 className="text-xl font-semibold text-gray-900">{post.title}</h2>
+          <CreateComment postId = {post.id}/>
         </div>
       ))}
+      
     </div>
   );
 };
