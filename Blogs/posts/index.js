@@ -17,6 +17,7 @@ app.post("/posts", (req, res)=>{
     posts[id] = {
         id, title
     }
+    res.status(201).send(posts[id])
 })
 
 const port = 3000
