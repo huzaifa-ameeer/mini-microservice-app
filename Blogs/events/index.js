@@ -5,11 +5,11 @@ const app = express();
 app.use(express.json());
 const port = 3003;
 
-app.post("/event", (req, res) => {
+app.post("/events", async (req, res) => {
   const event = req.body;
-  axios.post("http://localhost:3000/event", event);
-  axios.post("http://localhost:3001/event", event);
-  axios.post("http://localhost:3002/event", event);
+  await axios.post("http://localhost:3000/events", event);
+  await axios.post("http://localhost:3001/events", event);
+  // await axios.post("http://localhost:3002/events", event);
 
   res.send({ status: "OK" });
 });
