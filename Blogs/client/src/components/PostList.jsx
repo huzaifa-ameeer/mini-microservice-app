@@ -7,7 +7,8 @@ const PostList = () => {
   const [post, setPost] = useState({});
 
   const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:3000/posts");
+    const res = await axios.get("http://localhost:3002/events");
+    console.log(res.data)
     setPost(res.data);
   };
 
@@ -23,7 +24,7 @@ const PostList = () => {
           className="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition"
         >
           <h2 className="text-xl font-semibold text-gray-900">{post.title}</h2>
-          <CommentList postId={post.id} />
+          <CommentList comments = {post.comments} />
           <CreateComment postId={post.id} />
         </div>
       ))}
